@@ -1,3 +1,5 @@
+package main.java;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,8 +8,8 @@ import java.util.stream.LongStream;
 
 public class Main {
 
-    private static long MIN = 10_000;
-    private static long MAX = 50_000;
+    private static long MIN = 500_000;
+    private static long MAX = 600_000;
 
     static Boolean isPrime(long l) {
         if (l < 2) {
@@ -42,11 +44,11 @@ public class Main {
         timePoint2 = LocalDateTime.now();
 
         long paraTime = Duration.between(timePoint1, timePoint2).toMillis();
-        System.out.println("parallel: " + noParaTime);
+        System.out.println("parallel: " + paraTime);
 
         double speedup = 1 / ((double)paraTime / noParaTime);
         System.out.println("speedup: " + speedup);
-        System.out.println("cores: " + Runtime.getRuntime().availableProcessors());
+        //System.out.println("cores: " + Runtime.getRuntime().availableProcessors());
 
         // be sure to use results to avoid any kind of optimisation
         long s1 = ll.stream()
